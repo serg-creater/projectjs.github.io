@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Сайт</title>
+    <!-- Подключение Font Awesome для иконок (актуальная версия) -->
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+    <!-- НАВИГАЦИОННАЯ ПАНЕЛЬ -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <div class="logo">✨ NebulaFrame</div>
+            <button class="burger" id="burgerBtn" aria-label="Меню"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#features">Возможности</a></li>
+                <li><a href="#gallery">Интерактив</a></li>
+                <li><a href="#subscribe">Контакты</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Секция Hero -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Создаем <span class="hero-gradient-text">сайты</span> нового поколения</h1>
+                    <p>Тёмная тема, адаптивность, анимации и интерактив на CSS/JS.</p>
+                    <div class="hero-buttons">
+                        <a href="#features" class="btn btn-primary">Исследовать <i class="fas fa-arrow-right"></i></a>
+                        <a href="#" id="demoAlertBtn" class="btn btn-outline">Демо-действие</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция Features (карточки) -->
+        <section id="features">
+            <div class="container">
+                <h2 class="section-title">Ключевые особенности</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Адаптивный дизайн</h3>
+                        <p>Идеально выглядит на всех устройствах: от смартфонов до 4K мониторов.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                        <h3>Тёмная тема + градиенты</h3>
+                        <p>Современная эстетика, комфортная для глаз и выделяющая ваш контент.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Готовые JS‑компоненты</h3>
+                        <p>Счётчик кликов, валидация формы, модальное окно и мобильное меню.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Секция галереи / интерактивный блок (счётчики кликов, лайтбокс) -->
+        <section id="gallery">
+            <div class="container">
+                <div class="gallery">
+                    <h2 class="section-title" style="margin-bottom: 32px;">Интерактивная зона</h2>
+                    <div class="gallery-grid" id="interactiveGrid">
+                        <!-- карточки будут динамически созданы через JS, но также можно прописать статично с data атрибутами -->
+                    </div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <p style="color: var(--text-secondary);"><i class="fas fa-info-circle"></i> Кликните по любому элементу — увеличится счётчик, а при клике на название откроется модалка</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма подписки с валидацией JS -->
+        <section id="subscribe">
+            <div class="container">
+                <div class="subscribe-card">
+                    <h2 style="font-size: 2rem; margin-bottom: 16px;">Будьте на связи</h2>
+                    <p>Подпишитесь на обновления — никакого спама, только полезные материалы.</p>
+                    <div class="subscribe-form">
+                        <input type="email" id="subEmail" placeholder="Ваш Email" autocomplete="email">
+                        <button id="subBtn" class="btn btn-primary">Подписаться <i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <div id="subscribeMessage" class="message-area"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ФУТЕР -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="font-size: 1.5rem;">✨ Симферополь</div>
+                    <p>Современный каркас для ваших идей. Чистый код, адаптивность, готовая логика.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Навигация</h4>
+                    <ul style="list-style: none; margin-top: 12px;">
+                        <li><a href="#home" style="color: var(--text-secondary); text-decoration: none;">Главная</a></li>
+                        <li><a href="#features" style="color: var(--text-secondary); text-decoration: none;">Возможности</a></li>
+                        <li><a href="#gallery" style="color: var(--text-secondary); text-decoration: none;">Интерактив</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Симферополь. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно (лайтбокс) -->
+    <div id="itemModal" class="modal-lightbox">
+        <div class="modal-content">
+            <i class="fas fa-star" style="font-size: 40px; color: var(--warning); margin-bottom: 12px;"></i>
+            <h3 id="modalTitle">Название</h3>
+            <p id="modalDesc">Вы открыли детальную информацию.</p>
+            <button class="close-modal" id="closeModalBtn">Закрыть</button>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        // -------------------- МОБИЛЬНОЕ МЕНЮ --------------------
+        const burger = document.getElementById('burgerBtn');
+        const navLinks = document.getElementById('navLinks');
+        if(burger && navLinks) {
+            burger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                // иконка смены (опционально)
+                const icon = burger.querySelector('i');
+                if(navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+            // закрываем меню при клике на ссылку
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = burger.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        }
+
+        // -------------------- ДЕМО-АЛЕРТ КНОПКА --------------------
+        const demoBtn = document.getElementById('demoAlertBtn');
+        if(demoBtn) {
+            demoBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('✨ Привет! Это демонстрационное действие. Каркас полностью функционален, вы можете расширять его под свои задачи.');
+            });
+        }
+
+        // -------------------- ГЕНЕРАЦИЯ ИНТЕРАКТИВНОЙ СЕТКИ (ГАЛЕРЕЯ) + СЧЁТЧИКИ + МОДАЛКА--------------------
+        const gridContainer = document.getElementById('interactiveGrid');
+        // массив элементов: заголовок, описание, иконка
+        const itemsData = [
+            { title: "Интерактивный виджет", desc: "Клик увеличивает счётчик активности.", icon: "fas fa-cogs", counter: 0 },
+            { title: "Динамический блок", desc: "Протестируй реактивность интерфейса.", icon: "fas fa-charging-station", counter: 0 },
+            { title: "Современный UI", desc: "Элементы с плавными анимациями.", icon: "fas fa-layer-group", counter: 0 },
+            { title: "Адаптивность", desc: "Работает на любом экране.", icon: "fas fa-tablet-alt", counter: 0 }
+        ];
+
+        function renderInteractiveCards() {
+            if(!gridContainer) return;
+            gridContainer.innerHTML = '';
+            itemsData.forEach((item, idx) => {
+                const card = document.createElement('div');
+                card.className = 'gallery-item';
+                card.setAttribute('data-index', idx);
+                // иконка + заголовок + описание + счётчик
+                const iconEl = document.createElement('i');
+                iconEl.className = item.icon;
+                const titleEl = document.createElement('h4');
+                titleEl.textContent = item.title;
+                const descEl = document.createElement('p');
+                descEl.textContent = item.desc;
+                descEl.style.color = 'var(--text-secondary)';
+                const counterSpan = document.createElement('span');
+                counterSpan.className = 'click-counter';
+                counterSpan.id = `counter-${idx}`;
+                counterSpan.textContent = `👆 кликов: ${item.counter}`;
+
+                card.appendChild(iconEl);
+                card.appendChild(titleEl);
+                card.appendChild(descEl);
+                card.appendChild(counterSpan);
+
+                // Клик по карточке: увеличение счётчика
+                card.addEventListener('click', (e) => {
+                    // предотвращаем всплытие, если кликнули на заголовок — но нам нужно именно увеличить счетчик, но модалку отдельно обработаем
+                    // Логика: увеличить счетчик при любом клике внутри карточки, НО если клик пришёлся на заголовок (h4) - открываем модалку и тоже увеличиваем счётчик?
+                    // Сделаем: всегда увеличиваем счетчик. Если элемент клика - h4 или его дочерний узел, то после увеличения покажем модалку.
+                    // увеличим счётчик:
+                    item.counter += 1;
+                    const counterElem = document.getElementById(`counter-${idx}`);
+                    if(counterElem) counterElem.textContent = `👆 кликов: ${item.counter}`;
+
+                    // Дополнительно: если кликнули именно по заголовку или по иконке (можно расширить), а модальное окно будем показывать только если target.tagName === 'H4' или клик на иконку с title?
+                    // Для удобства: модалка откроется при двойном клике (или сделаем по клику на заголовок).
+                    // В условии по заданию "при клике по названию откроется модалка". Но чтобы не перегружать, сделаем отдельно: при клике на H4 открываем модалку.
+                    // Но т.к. мы уже обрабатываем клик на карточке, проверим цель события:
+                    if(e.target === titleEl || (e.target.parentElement === titleEl) || e.target === iconEl) {
+                        openModal(item.title, item.desc);
+                    }
+                });
+                // Также повесим отдельный обработчик именно на заголовок чтобы открывать модалку, но для надежности оставим выше по условию.
+                // для лучшего UX: двойной тап не нужен. Используем предыдущую логику.
+                gridContainer.appendChild(card);
+            });
+        }
+
+        // Модальные функции
+        const modal = document.getElementById('itemModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDesc = document.getElementById('modalDesc');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        function openModal(title, desc) {
+            if(modal && modalTitle && modalDesc) {
+                modalTitle.textContent = title;
+                modalDesc.textContent = desc;
+                modal.classList.add('active');
+            }
+        }
+
+        function closeModal() {
+            if(modal) modal.classList.remove('active');
+        }
+
+        if(closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+        if(modal) modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeModal();
+        });
+
+        // запускаем рендер галереи
+        renderInteractiveCards();
+
+        // -------------------- ФОРМА ПОДПИСКИ С ВАЛИДАЦИЕЙ --------------------
+        const subBtn = document.getElementById('subBtn');
+        const subEmail = document.getElementById('subEmail');
+        const msgDiv = document.getElementById('subscribeMessage');
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+            return re.test(email.trim());
+        }
+
+        if(subBtn && subEmail) {
+            subBtn.addEventListener('click', () => {
+                const emailVal = subEmail.value;
+                if(!emailVal) {
+                    msgDiv.innerHTML = '<span style="color: #f97316;"><i class="fas fa-exclamation-circle"></i> Введите email!</span>';
+                    return;
+                }
+                if(!validateEmail(emailVal)) {
+                    msgDiv.innerHTML = '<span style="color: #ef4444;"><i class="fas fa-times-circle"></i> Неверный формат email. Пример: name@domain.ru</span>';
+                    return;
+                }
+                // успех
+                msgDiv.innerHTML = `<span style="color: #10b981;"><i class="fas fa-check-circle"></i> Спасибо! Вы подписаны на обновления.</span>`;
+                subEmail.value = '';
+                // опционально через 3 секунды очистить сообщение
+                setTimeout(() => {
+                    if(msgDiv.innerHTML.includes('Спасибо')) msgDiv.innerHTML = '';
+                }, 4000);
+            });
+        }
+
+        // легкая анимация появления при скролле (доп. штрих, но не обязательно)
+        // добавим эффект появления карточек через intersection observer (не обязательно для каркаса, но приятно)
+        // создать наблюдатель, но для простоты оставим уже готовую структуру.
+        // просто добавим небольшую инициализацию для плавного отображения при загрузке
+        const fadeElements = document.querySelectorAll('.feature-card, .gallery-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            observer.observe(el);
+        });
+        // фикс для уже видимых после загрузки
+        setTimeout(() => {
+            fadeElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if(rect.top < window.innerHeight - 100) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        }, 200);
+    })();
+    </script>
+</body>
+</html>
